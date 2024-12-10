@@ -5,10 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-<<<<<<< HEAD
-=======
     "export": "next build && next export",
->>>>>>> 88c64dd (isso aí next)
     "start": "next start",
     "lint": "next lint"
   },
