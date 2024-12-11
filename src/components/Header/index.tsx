@@ -11,6 +11,8 @@ export default function Header() {
                     <li className={styles.item}><Link href="/products/categories">Categorias</Link></li>
                     <li className={styles.item}><Link href="/clients">Clientes</Link></li>
                     <li className={styles.item}><Link href="/users">Usuários</Link></li>
+                    <li className={styles.item}><Link href="/login">Login</Link></li>
+                    <li className={styles.item}><Link href="/register">Register</Link></li>
                     <li className={styles.item}><Link href="/faq">FAQ</Link></li>
                 </ul>
             </nav>

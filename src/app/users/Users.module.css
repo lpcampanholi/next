@@ -1,7 +1,11 @@
 .navegacao {
-    padding: 1em;
+    padding: 0.5em;
     display: flex;
     gap: 1em;
     color: white;
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(182, 182, 182);
+
+    a:hover {
+        text-decoration: underline;
+    }
 }
