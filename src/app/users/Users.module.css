@@ -1,0 +1,7 @@
+.navegacao {
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+    color: white;
+    background-color: rgb(71, 71, 71);
+}
