@@ -1,10 +1,11 @@
-import { data } from "../data";
+import { data } from "../api/data";
 
 export async function GET(
     _request: Request,
     { params }: { params: { id: string } }
 ) {
     const name = data.find(name => name.id === parseInt(params.id));
+
     if(!name) {
         return new Response("ID não encontrado");
     }

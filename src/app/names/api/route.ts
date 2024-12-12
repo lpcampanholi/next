@@ -1,7 +1,16 @@
+import { NextRequest } from "next/server";
 import { data } from "./data";
 
-export async function GET() {
-    return Response.json(data);
+
+// http://localhost:3000/names?query=vi
+
+export async function GET(request: NextRequest) {
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get("query");
+
+    const filteredNames = query ? data.filter(user => user.name.includes(query)) : data;
+
+    return Response.json(filteredNames);
 }
 
 export async function POST(request: Request) {
