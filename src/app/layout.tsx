@@ -22,7 +22,7 @@ export default function RootLayout({
         <html lang="pt-br">
             <body>
                 <Header />
-                <main>{children}</main>
+                    <main className="p-6">{children}</main>
                 <Footer />
             </body>
         </html>

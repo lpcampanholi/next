@@ -1,3 +1,4 @@
+import Title from "@/src/components/Title";
 import { notFound } from "next/navigation";
 
 interface ReviewParams {
@@ -16,12 +17,12 @@ export default async function Review(props: ReviewParams) {
     }
 
     if (parseInt(reviewid) === 900) {
-        throw Error("Invalid Id.");
+        throw Error("Invalid 900 Id.");
     }
 
     return (
         <div>
-            <h1>Produto {productid}</h1>
+            <Title>Produto</Title>
             <p>Review {reviewid}</p>
         </div>
     );

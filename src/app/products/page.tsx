@@ -1,3 +1,4 @@
+import Title from "@/src/components/Title";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -8,14 +9,25 @@ export const metadata: Metadata = {
 }
 
 export default function Products() {
-    const id: Number = 1;
+    
+    const produtos = [
+        {id: 1, title: "produto 1"},
+        {id: 2, title: "produto 2"},
+        {id: 3, title: "produto 3"},
+        {id: 4, title: "produto 4"},
+        {id: 5, title: "produto 5"},
+    ];
+
+    // O atributo replace no componente Link do Next faz voltar para a tela inicial da aplicação
+
     return (
         <div>
-            <h1>Produtos</h1>
-            <p><Link href={`/products/${id}`}>Produto 1</Link></p>
-            <p><Link href="/products/2">Produto 2</Link></p>
-            <p><Link href="/products/3" replace>Produto 3</Link></p>
-            {/* O replace faz voltar para o ponto inicial da aplicação */}
+            <Title>Produtos</Title>
+            {produtos.map(produto => (
+                <p className="no-underline hover:underline">
+                    <Link href={`/products/${produto.id}`} replace>{produto.title}</Link>
+                </p>
+            ))}
         </div>
     );
 }
