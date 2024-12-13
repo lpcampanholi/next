@@ -110,7 +110,7 @@ export default function Names() {
                                 x
                             </button>
                             <button
-                                className="bg-blue-950 hover:bg-blue-900 px-2 rounded-full"
+                                className="bg-blue-950 hover:bg-blue-900 px-2"
                                 onClick={() => atualizarNome(nome.id, nome.name)}
                             >
                                 Editar
