@@ -5,24 +5,23 @@ export async function GET(
     { params }: { params: { id: string } }
 ) {
     const name = data.find(name => name.id === parseInt(params.id));
-
-    if(!name) {
+    if (!name) {
         return new Response("ID não encontrado");
     }
-    
     return Response.json(name);
 }
 
 export async function PATCH(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await params;
     const body = await request.json();
-    const { text } = body;
+    const { name } = body;
     const index = data.findIndex(
-        user => user.id === parseInt(params.id)
+        user => user.id === parseInt(id)
     );
-    data[index].name = text;
+    data[index].name = name;
     return Response.json(data[index]);
 }
 
@@ -35,6 +34,5 @@ export async function DELETE(
     );
     const deletedUser = data[index];
     data.splice(index, 1);
-
     return Response.json(deletedUser);
 }

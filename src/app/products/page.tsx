@@ -24,7 +24,7 @@ export default function Products() {
         <div>
             <Title>Produtos</Title>
             {produtos.map(produto => (
-                <p className="no-underline hover:underline">
+                <p key={produto.id} className="no-underline hover:underline">
                     <Link href={`/products/${produto.id}`} replace>{produto.title}</Link>
                 </p>
             ))}

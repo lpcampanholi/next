@@ -1,15 +1,15 @@
 export const data = [
     {
         id: 1,
-        name: "Joãozinho"
+        name: "Vitu"
     },
     {
         id: 2,
-        name: "Pedro"
+        name: "Pedrin"
     },
     {
         id: 3,
-        name: "Maria"
+        name: "Sheila"
     },
     {
         id: 4,

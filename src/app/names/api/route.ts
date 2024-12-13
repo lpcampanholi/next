@@ -1,7 +1,6 @@
 import { NextRequest } from "next/server";
 import { data } from "./data";
 
-
 // http://localhost:3000/names?query=vi
 
 export async function GET(request: NextRequest) {
