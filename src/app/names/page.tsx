@@ -1,6 +1,7 @@
 "use client";
 
 import Title from "@/src/components/Title";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Nome = {
@@ -41,7 +42,7 @@ export default function Names() {
     }
 
     async function excluirNome(id: number) {
-        const response = await fetch(`http://localhost:3000/names/${id}`, {
+        const response = await fetch(`http://localhost:3000/names/${id}/api`, {
             method: "DELETE"
         });
         if (response.ok) {
@@ -98,10 +99,12 @@ export default function Names() {
             <ul>
                 {nomes.map((nome: Nome) => (
                     <li key={nome.id} className="bg-neutral-800 w-[50%] mb-4 rounded-lg flex justify-between gap-1 py-2">
-                        <div className="px-4">
-                            <span>{nome.id} </span>
-                            <span>{nome.name}</span>
-                        </div>
+                        <Link href={`/names/${nome.id}`} className="hover:underline">
+                            <div className="px-4">
+                                <span>{nome.id} </span>
+                                <span>{nome.name}</span>
+                            </div>
+                        </Link>
                         <div className="flex gap-2 px-2">
                             <button
                                 className="bg-red-950 hover:bg-red-900 px-2 rounded-full"

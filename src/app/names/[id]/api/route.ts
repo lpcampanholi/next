@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { data } from "../api/data";
+import { data } from "../../api/data";
 
 export async function GET(
     _request: Request,
