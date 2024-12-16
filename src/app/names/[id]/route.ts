@@ -1,19 +1,17 @@
 import { redirect } from "next/navigation";
 import { data } from "../api/data";
 
-
-
 export async function GET(
     _request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const id  = parseInt(params.id);
+    const { id } = await params;
     // O redirect direciona para uma página quando ele não encontrar o ID do nome
-    if (id > data.length) {
+    if (parseInt(id) > data.length) {
         redirect("/names");
     }
-    
-    const name = data.find(name => name.id === id);
+
+    const name = data.find(name => name.id === parseInt(id));
     if (!name) {
         return new Response("ID não encontrado");
     }
@@ -36,10 +34,11 @@ export async function PATCH(
 
 export async function DELETE(
     _request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const {id} = await params;
     const index = data.findIndex(
-        user => user.id == parseInt(params.id)
+        user => user.id == parseInt(id)
     );
     const deletedUser = data[index];
     data.splice(index, 1);

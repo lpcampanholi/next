@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link";
-import styles from "./Users.module.css";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -19,7 +18,7 @@ export default function UsersLayout({ children }: { children: React.ReactNode })
             <div>
                 <input type="text" value={value} onChange={(e) => setValue(e.target.value)}/>
             </div>
-            <div className={styles.navegacao}>
+            <div>
                 {navLinks.map((link) => {
                 const isActive = pathName.startsWith(link.href);
 

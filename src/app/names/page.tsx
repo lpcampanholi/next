@@ -20,7 +20,7 @@ export default function Names() {
     async function buscarNomes() {
         const response = await fetch("http://localhost:3000/names/api");
         const nomes = await response.json();
-        console.log("nome", nomes)
+        // console.log("nome", nomes);
         setNomes(nomes);
     }
 
