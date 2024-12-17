@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { data } from "./data";
 
-// http://localhost:3000/names?query=vi
+// http://localhost:3000/names/api?query=Vi
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;

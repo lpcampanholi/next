@@ -1,14 +1,15 @@
 "use client";
 
 import Title from "@/src/components/Title";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 type Name = null | {
     id: number,
     name: string
 }
 
-export default function NamePage({ params }: { params: { id: string } }) {
+export default function NamePage({ params }: { params: Promise<{ id: string }> }) {
+    const resolvedParams = use(params);
     const [nome, setNome] = useState<Name>(null);
 
     async function buscarNome(id: number) {
@@ -21,8 +22,8 @@ export default function NamePage({ params }: { params: { id: string } }) {
     }
 
     useEffect(() => {
-        buscarNome(parseInt(params.id));
-    }, [params.id]);
+        buscarNome(parseInt(resolvedParams.id));
+    }, [resolvedParams.id]);
 
     return (
         <div>
