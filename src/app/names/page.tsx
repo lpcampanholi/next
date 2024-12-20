@@ -24,7 +24,7 @@ export default function NamesPage() {
     async function buscarNomes() {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:3000/names/api");
+            const response = await fetch("/names/api");
             const nomes = await response.json();
             setNomes(nomes);
         } catch (error) {
@@ -35,7 +35,7 @@ export default function NamesPage() {
     }
 
     async function adicionarNome(data: NomeParaEnviar) {
-        const response = await fetch("http://localhost:3000/names/api", {
+        const response = await fetch("/names/api", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -52,7 +52,7 @@ export default function NamesPage() {
     }
 
     async function excluirNome(id: number) {
-        const response = await fetch(`http://localhost:3000/names/${id}/api`, {
+        const response = await fetch(`/names/${id}/api`, {
             method: "DELETE"
         });
         if (response.ok) {
@@ -68,7 +68,7 @@ export default function NamesPage() {
             const novoNome: NomeParaEnviar = {
                 name: nome
             }
-            const response = await fetch(`http://localhost:3000/names/${id}/api`, {
+            const response = await fetch(`/names/${id}/api`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -92,7 +92,7 @@ export default function NamesPage() {
     }
 
     async function pesquisarNome(textoPesquisa: string) {
-        const response = await fetch(`http://localhost:3000/names/api?query=${textoPesquisa}`);
+        const response = await fetch(`3000/names/api?query=${textoPesquisa}`);
         const nomes: Nome[] = await response.json();
         setNomes(nomes);
     }

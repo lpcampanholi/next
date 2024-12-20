@@ -13,7 +13,7 @@ export default function NamePage({ params }: { params: Promise<{ id: string }> }
     const [nome, setNome] = useState<Name>(null);
 
     async function buscarNome(id: number) {
-        const response = await fetch(`http://localhost:3000/names/${id}/api`);
+        const response = await fetch(`/names/${id}/api`);
         if (!response.ok) {
             throw new Error("Erro ao buscar o nome");
         }
