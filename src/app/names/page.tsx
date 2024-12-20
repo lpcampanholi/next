@@ -92,7 +92,7 @@ export default function NamesPage() {
     }
 
     async function pesquisarNome(textoPesquisa: string) {
-        const response = await fetch(`3000/names/api?query=${textoPesquisa}`);
+        const response = await fetch(`/names/api?query=${textoPesquisa}`);
         const nomes: Nome[] = await response.json();
         setNomes(nomes);
     }
